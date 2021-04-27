@@ -1,0 +1,7 @@
+{
+  "name": "ion-3-radio-capacitor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "ionic-angular"
+}
