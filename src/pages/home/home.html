@@ -7,8 +7,34 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+
+  <img   src="{{app_cover_data.guid}}"/>
+  <!-- [src]="app_cover_data.guid" -->
+
+  <div class="hero_text">
+      <h1>RADIO</h1>
+      <h1>SUARA ELSHADDAY</h1>
+      <H4>90.4 FM - MASAMBA</H4>
+    
+    </div>  
+
+    <a href="https://www.facebook.com/ypriministry/">
+      <button ion-button small >facebook</button>
+      </a>
+
+  <button ion-button icon-only (click)="playStreaming()"
+    *ngIf="showButton">
+        <ion-icon name="play"></ion-icon>
+    </button>
+
+    <button ion-button icon-only (click)="pauseStreaming()"
+    *ngIf="!showButton">
+    <ion-icon name="pause"></ion-icon>
+    </button>
+
+    <audio #audioElement controls [src]="icecast_url" autoplay>
+      <!-- <source [src]="icecast_url"> -->
+    </audio>
+
+    <button (click)="pauseAudio()"> PAUSE</button>
 </ion-content>
