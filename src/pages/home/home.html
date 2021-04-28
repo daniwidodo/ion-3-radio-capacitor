@@ -32,9 +32,9 @@
     <ion-icon name="pause"></ion-icon>
     </button>
 
-    <audio #audioElement controls [src]="icecast_url" autoplay>
-      <!-- <source [src]="icecast_url"> -->
+    <audio #audioElement [src]="icecast_url" autoplay>
+     
     </audio>
 
-    <button (click)="pauseAudio()"> PAUSE</button>
+
 </ion-content>
