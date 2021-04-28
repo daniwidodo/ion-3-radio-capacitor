@@ -1,7 +1,24 @@
-.background {
+.main-background {
     background-color: cadetblue;
+    background-image: url(../../assets/imgs/Untitled-1.jpg);
+    background-size: cover; 
+
   }
-  .radio_player{
+
+.main-player {
+  margin: 10%;
+  background-color: rgba(240, 248, 255, 0.4);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );  
+  border-radius: 25px;
+  padding-bottom: 10%;
+}
+
+.radio-img{
+  border-radius: 25px 25px 0 0;
+}
+.radio_player{
     
     
     position:fixed;
@@ -25,12 +42,11 @@
     z-index: 996;
   }
   
-  .player_buttons{
+.player-buttons{
+  display: flex;
     align-content: center;
-    justify-content: center;
-  
-    padding-top: 2%;
-  
+    justify-content: center;  
+    margin-top: 8%;  
   }
   
   .radio_player_play_button{
