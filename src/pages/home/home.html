@@ -1,34 +1,54 @@
+<ion-content class="main-background">
 
+  <ion-fab top right > 
+    <button ion-fab (click)="basicShare()"><ion-icon name="md-share"></ion-icon></button>
+  </ion-fab>
 
-<ion-content >
-
-  <img   src="{{app_cover_data.guid}}"/>
-  <!-- [src]="app_cover_data.guid" -->
+  <div class="main-player">
+    <img  class="radio-img" src="{{app_cover_data.guid}}"/>
 
   <div class="hero_text">
       <h1>RADIO</h1>
       <h1>SUARA ELSHADDAY</h1>
-      <H4>90.4 FM - MASAMBA</H4>
-    
+      <H4>90.4 FM - MASAMBA</H4>    
   </div>  
 
-  <a href="https://www.facebook.com/ypriministry/">
-    <button ion-button small >facebook</button>
-  </a>
+    <div class="player-buttons">      
+    
+      <button ion-button icon-only (click)="playStreaming()" 
+        large       
+        *ngIf="showButton">
+            <ion-icon name="play"></ion-icon>
+        </button>
+    
+        <button ion-button icon-only (click)="pauseStreaming()"
+        large
+        color="danger"
+        *ngIf="!showButton">
+        <ion-icon name="pause"></ion-icon>
+        </button>
 
-  <button ion-button icon-only (click)="playStreaming()"
-    *ngIf="showButton">
-        <ion-icon name="play"></ion-icon>
-    </button>
+    </div>
 
-    <button ion-button icon-only (click)="pauseStreaming()"
-    *ngIf="!showButton">
-    <ion-icon name="pause"></ion-icon>
-    </button>
+    <div class="player-buttons">
+      <a href="https://www.facebook.com/ypriministry/">
+        <button ion-button small >facebook</button>
+      </a>
 
-    <audio #audioElement [src]="icecast_url" autoplay>
-     
-    </audio>
+      <a href="https://www.facebook.com/ypriministry/">
+        <button ion-button small color="secondary">whatsapp</button>
+      </a>
+
+    </div>
+  </div>
+
+
+<div class="element">
+  <audio #audioElement [src]="icecast_url" autoplay>     
+  </audio>
+</div>
+
+   
 
 
 </ion-content>

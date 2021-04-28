@@ -9,6 +9,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ServerPanelProvider } from '../providers/server-panel/server-panel';
 import { Media } from '@ionic-native/media/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { Media } from '@ionic-native/media/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    SocialSharing,
+    BackgroundMode,
+    Toast,
     Media,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServerPanelProvider

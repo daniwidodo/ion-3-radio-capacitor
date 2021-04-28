@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { ElementRef } from '@angular/core';
-
+import { Plugins } from '@capacitor/core';
 import { Component, ViewChild } from '@angular/core';
-import { Media } from '@ionic-native/media/ngx';
-// import { SocialSharing } from '@ionic-native/social-sharing';
+
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { NavController } from 'ionic-angular';
 import { ServerPanelProvider } from '../../providers/server-panel/server-panel';
+
+const {Share} = Plugins;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -29,9 +31,10 @@ export class HomePage {
     public navCtrl: NavController,
     public http: HttpClient,
     private _server:ServerPanelProvider,
-    // private media: Media
-    // public _social:SocialSharing,
+   
+    private _social: SocialSharing,
 ) {
+    
     //
     this.getAppCover();
     //
@@ -39,15 +42,24 @@ export class HomePage {
       this.icecast_url = res[0].icecast_url
       console.log('ice url',this.icecast_url);
     });
-    //
     
 
 
   }
 
+  async basicShare(){
+    await Share.share({
+      title: 'judul',
+      text: 'wakwaww',
+      url: 'https://facebook.com'
+    })
+  }
+
   ngAfterViewInit() {
     console.log("afterinit");
     this.audio = this._audioRef.nativeElement;
+    //
+    
   }
 
   getAppCover(){
@@ -62,18 +74,11 @@ export class HomePage {
     console.log('tombol play');
     this.audio.play();
     this.showButton = false;
-    // this.audioUrl = new Audio(audioStream);
-    // this.audioUrl = this.media.create(audioStream)
-    // this.audioUrl.load();
-    // this.audioUrl.play();
-    
-    
+
   }
 
   pauseStreaming(){
     console.log('tombol pause'); 
-    
-    // this.audioUrl.pause();
     this.showButton = true;
     this.audio.pause();
     
@@ -92,10 +97,10 @@ export class HomePage {
     //   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
     // }
      
-    // this._social.shareWithOptions(options)
-    //   .then(()=> {})
-    //   .catch(()=>{});
-    // console.log('sociall');
+    this._social.share("Bagikan!", 'SUBJECT',null,'http://facebook.com')
+      .then(()=> {})
+      .catch(()=>{});
+    console.log('sociall');
   }
 
 }
