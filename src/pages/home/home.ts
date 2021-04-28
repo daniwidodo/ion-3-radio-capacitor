@@ -4,6 +4,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServerPanelProvider } from '../../providers/server-panel/server-panel';
 import { MusicControls } from '@ionic-native/music-controls';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
 
 
 const {Share, Toast} = Plugins;
@@ -30,7 +32,8 @@ export class HomePage {
     public navCtrl: NavController,
     public http: HttpClient,
     private _server:ServerPanelProvider,
-    private musicControls: MusicControls
+    private musicControls: MusicControls,
+    private backgroundMode: BackgroundMode
 ) {
     
     //
@@ -41,6 +44,8 @@ export class HomePage {
       console.log('ice url',this.icecast_url);
     });
     //
+    this.backgroundMode.enable();
+
     
   }
 

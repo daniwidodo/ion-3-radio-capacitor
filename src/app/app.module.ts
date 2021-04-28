@@ -10,6 +10,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ServerPanelProvider } from '../providers/server-panel/server-panel';
 import { MusicControls } from '@ionic-native/music-controls';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { MusicControls } from '@ionic-native/music-controls';
     StatusBar,
     SplashScreen,
     MusicControls,
+    BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServerPanelProvider
   ]
